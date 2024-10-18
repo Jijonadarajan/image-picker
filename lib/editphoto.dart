@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_pick/croppage.dart';
+import 'package:image_pick/removedialog.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -67,15 +68,36 @@ class _EditPhotoPageState extends State<EditPhotoPage> {
       color: const Color(0xFF001B3E),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color(0xFF001B3E),
-          toolbarHeight: 90,
-          centerTitle: true,
-          leading: const Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
-          title: Text(
-            "Edit Photo",
-            style: GoogleFonts.lato(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.white),
-          ),
+  backgroundColor: const Color(0xFF001B3E),
+  toolbarHeight: 90,
+  
+  
+  title: Row(
+    
+    children: [
+      IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back_ios_rounded,color: Colors.white,size: 22,)),
+      Text(
+        "Back",
+        style: GoogleFonts.lato(
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          color: Colors.white,
         ),
+      ),
+      SizedBox(width: 70,),
+      Text(
+        "Edit Photo",
+        
+        style: GoogleFonts.lato(
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          color: Colors.white,
+        ),
+      ),
+    ],
+  ),
+),
+
         backgroundColor: Colors.white,
         body: Center(
           child: Column(
@@ -120,10 +142,10 @@ class _EditPhotoPageState extends State<EditPhotoPage> {
         ),
       );
 
-      // Update the image file if cropping is successful
+      
       if (croppedImagePath != null) {
         setState(() {
-          _imageFile = XFile(croppedImagePath); // Update with the cropped image
+          _imageFile = XFile(croppedImagePath); 
         });
       }
     } else {
@@ -204,7 +226,15 @@ class _EditPhotoPageState extends State<EditPhotoPage> {
                       const Icon(Icons.delete, color: Color(0xFF484C52), size: 14),
                       const SizedBox(width: 8),
                       TextButton(
-                        onPressed: _removeImage,
+                        onPressed: () {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Removedialog(onRemove:_removeImage);
+      },
+    );
+  },
+                        
                         child: Text(
                           "Remove Photo",
                           style: GoogleFonts.lato(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black),

@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Removedialog extends StatefulWidget {
-  final Function onRemove; // Callback for remove action
+class DiscardDialog extends StatelessWidget {
+  final Function onDiscard; // Callback for discard action
 
-  const Removedialog({Key? key, required this.onRemove}) : super(key: key);
+  const DiscardDialog({Key? key, required this.onDiscard}) : super(key: key);
 
-  @override
-  State<Removedialog> createState() => _RemoveDialogState();
-}
-
-class _RemoveDialogState extends State<Removedialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-  
+      elevation: 0,
       backgroundColor: Colors.white,
       child: Container(
         height: 144,
         width: 360,
         padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Remove',
+              'Discard changes',
               style: GoogleFonts.lato(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.black),
             ),
             Text(
-              'Are you sure you want to remove your profile photo?',
+              'Are you sure you want to discard all changes?',
               style: GoogleFonts.lato(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black),
             ),
             Row(
@@ -44,7 +44,7 @@ class _RemoveDialogState extends State<Removedialog> {
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(7),
-                    side: const BorderSide(color: Color(0xFF004C99), width: 1),
+                    side: BorderSide(color: Color(0xFF004C99), width: 1),
                   ),
                   child: Text(
                     'Cancel',
@@ -56,18 +56,18 @@ class _RemoveDialogState extends State<Removedialog> {
                 SizedBox(width: 15),
                 MaterialButton(
                   onPressed: () {
-                    widget.onRemove(); // Call the remove callback
+                    onDiscard(); // Call the discard callback
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Profile photo removed.")),
+                      SnackBar(content: Text("Changes discarded.")),
                     );
-                    Navigator.of(context).pop(); 
+                    Navigator.of(context).pop(); // Close the dialog
                   },
                   color: Color(0xFF004C99),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(7),
                   ),
                   child: Text(
-                    'Remove',
+                    'Discard',
                     style: GoogleFonts.lato(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white),
                   ),
                   minWidth: 102,
