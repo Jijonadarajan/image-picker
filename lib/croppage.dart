@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_pick/discarddiolog.dart';
+import 'package:image_pick/snack.dart';
 
 class Croppage extends StatefulWidget {
   final String imagePath; 
@@ -48,7 +49,7 @@ class _CroppageState extends State<Croppage> {
   IconButton(
     onPressed: () {
       if (_croppedImage != null) {
-    
+     showCustomSnackbar(context, 'Profile picture updated !');
         Navigator.pop(context, _croppedImage!.path); 
       } else {
         

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_pick/snack.dart';
 
 class DiscardDialog extends StatelessWidget {
   final Function onDiscard; // Callback for discard action
@@ -12,11 +13,11 @@ class DiscardDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      elevation: 0,
+    
       backgroundColor: Colors.white,
       child: Container(
         height: 144,
-        width: 360,
+        width: 390,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -57,9 +58,8 @@ class DiscardDialog extends StatelessWidget {
                 MaterialButton(
                   onPressed: () {
                     onDiscard(); // Call the discard callback
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Changes discarded.")),
-                    );
+              
+                    showCustomSnackbar(context, 'Profile picture updated !');
                     Navigator.of(context).pop(); // Close the dialog
                   },
                   color: Color(0xFF004C99),

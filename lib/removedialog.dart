@@ -21,7 +21,7 @@ class _RemoveDialogState extends State<Removedialog> {
       backgroundColor: Colors.white,
       child: Container(
         height: 144,
-        width: 360,
+        width: 390,
         padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

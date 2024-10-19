@@ -39,6 +39,7 @@ dependencies:
   image_cropper: ^8.0.2
   image_picker: ^1.1.2
   permission_handler: ^11.3.1
+  fluttertoast: ^8.2.8
   
   
  
@@ -70,9 +71,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-         - assets/CAMERA.png
+        
          - assets/files.png
          - assets/DSC_0042.JPG
+         - assets/camera (1).png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

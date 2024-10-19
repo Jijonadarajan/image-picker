@@ -192,7 +192,7 @@ class _EditPhotoPageState extends State<EditPhotoPage> {
                                       children: [
                                         GestureDetector(
                                           onTap: _openCamera,
-                                          child: _buildOptionContainer('assets/CAMERA.png', 'Camera'),
+                                          child: _buildOptionContainer('assets/camera (1).png', 'Camera'),
                                         ),
                                         GestureDetector(
                                           onTap: _openGallery,
