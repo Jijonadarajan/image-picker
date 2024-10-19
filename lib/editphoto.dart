@@ -3,6 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_pick/croppage.dart';
+<<<<<<< HEAD
+=======
+import 'package:image_pick/removedialog.dart';
+>>>>>>> master
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -67,6 +71,7 @@ class _EditPhotoPageState extends State<EditPhotoPage> {
       color: const Color(0xFF001B3E),
       child: Scaffold(
         appBar: AppBar(
+<<<<<<< HEAD
           backgroundColor: const Color(0xFF001B3E),
           toolbarHeight: 90,
           centerTitle: true,
@@ -76,6 +81,38 @@ class _EditPhotoPageState extends State<EditPhotoPage> {
             style: GoogleFonts.lato(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.white),
           ),
         ),
+=======
+  backgroundColor: const Color(0xFF001B3E),
+  toolbarHeight: 90,
+  
+  
+  title: Row(
+    
+    children: [
+      IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back_ios_rounded,color: Colors.white,size: 22,)),
+      Text(
+        "Back",
+        style: GoogleFonts.lato(
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          color: Colors.white,
+        ),
+      ),
+      SizedBox(width: 70,),
+      Text(
+        "Edit Photo",
+        
+        style: GoogleFonts.lato(
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          color: Colors.white,
+        ),
+      ),
+    ],
+  ),
+),
+
+>>>>>>> master
         backgroundColor: Colors.white,
         body: Center(
           child: Column(
@@ -120,10 +157,17 @@ class _EditPhotoPageState extends State<EditPhotoPage> {
         ),
       );
 
+<<<<<<< HEAD
       // Update the image file if cropping is successful
       if (croppedImagePath != null) {
         setState(() {
           _imageFile = XFile(croppedImagePath); // Update with the cropped image
+=======
+      
+      if (croppedImagePath != null) {
+        setState(() {
+          _imageFile = XFile(croppedImagePath); 
+>>>>>>> master
         });
       }
     } else {
@@ -170,7 +214,11 @@ class _EditPhotoPageState extends State<EditPhotoPage> {
                                       children: [
                                         GestureDetector(
                                           onTap: _openCamera,
+<<<<<<< HEAD
                                           child: _buildOptionContainer('assets/CAMERA.png', 'Camera'),
+=======
+                                          child: _buildOptionContainer('assets/camera (1).png', 'Camera'),
+>>>>>>> master
                                         ),
                                         GestureDetector(
                                           onTap: _openGallery,
@@ -204,7 +252,19 @@ class _EditPhotoPageState extends State<EditPhotoPage> {
                       const Icon(Icons.delete, color: Color(0xFF484C52), size: 14),
                       const SizedBox(width: 8),
                       TextButton(
+<<<<<<< HEAD
                         onPressed: _removeImage,
+=======
+                        onPressed: () {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Removedialog(onRemove:_removeImage);
+      },
+    );
+  },
+                        
+>>>>>>> master
                         child: Text(
                           "Remove Photo",
                           style: GoogleFonts.lato(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black),
